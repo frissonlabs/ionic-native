@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CordovaInstance, InstanceProperty, IonicNativePlugin, Plugin, checkAvailability } from '@ionic-native/core';
+import { checkAvailability, CordovaInstance, InstanceProperty, IonicNativePlugin, Plugin } from '@ionic-native/core';
 import { Observable, Observer } from 'rxjs';
 
 /**
@@ -112,6 +112,17 @@ export class MediaObject {
   @CordovaInstance({ sync: true })
   setVolume(volume: number): void {}
 
+  /**
+   * Set the pan for an audio file.
+   * @param pan {number} The pan to set for playback. The value must be within the range of -1.0 (left) to 1.0 (right).
+   */
+  @CordovaInstance({ sync: true })
+  setPan(pan: number): void {}
+
+  /**
+   * Set the playback rate for an audio file.
+   * @param rate {number} The rate to set for playback. The value must be within the range of 0.5 to 2.0.
+   */
   @CordovaInstance({ sync: true })
   setRate(speedRate: number): void {}
 
